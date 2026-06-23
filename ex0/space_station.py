@@ -9,8 +9,8 @@ class SpaceStation(BaseModel):
     power_level: float = Field(ge=0.0, le=100.0)
     oxygen_level: float = Field(ge=0.0, le=100.0)
     last_maintenance: datetime
-    is_operational: bool = True
-    notes: str | None = Field(max_length=200)
+    is_operational: bool = Field(default=True)
+    notes: str | None = Field(default=None, max_length=200)
 
 
 def main() -> None:
@@ -39,7 +39,6 @@ def main() -> None:
     print(f"Status: {station_status}")
 
     print("\n========================================")
-    print("Expected validation error:")
 
     try:
         valid_station = SpaceStation(
@@ -51,6 +50,7 @@ def main() -> None:
                 last_maintenance=datetime(2026, 6, 23, 0, 0)
                 )
     except ValidationError as e:
+        print("Expected validation error:")
         for error in e.errors():
             print(error["msg"])
 
