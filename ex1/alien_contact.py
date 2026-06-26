@@ -68,7 +68,8 @@ def main() -> None:
     print(f"Signal: {valid_contact_report.signal_strength}/10")
     print(f"Duration: {valid_contact_report.duration_minutes} minutes")
     print(f"Witnesses: {valid_contact_report.witness_count}")
-    print(f"Message: {valid_contact_report.message_received}")
+    if valid_contact_report.message_received:
+        print(f"Message: {valid_contact_report.message_received}")
 
     print("\n======================================")
 

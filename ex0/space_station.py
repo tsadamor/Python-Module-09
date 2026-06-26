@@ -37,11 +37,13 @@ def main() -> None:
     print(f"Power: {valid_station.power_level}%")
     print(f"Oxygen: {valid_station.oxygen_level}%")
     print(f"Status: {station_status}")
+    if valid_station.notes:
+        print(f"Notes: {valid_station.notes}")
 
     print("\n========================================")
 
     try:
-        valid_station = SpaceStation(
+        _ = SpaceStation(
                 station_id="ISS001",
                 name="International Space Station",
                 crew_size=60,
