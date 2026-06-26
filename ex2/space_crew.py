@@ -115,7 +115,7 @@ def main() -> None:
     print(f"ID: {valid_mission.mission_id}")
     print(f"Destination: {valid_mission.destination}")
     print(f"Duration: {valid_mission.duration_days} days")
-    print(f"Budget: {valid_mission.budget_millions}M")
+    print(f"Budget: ${valid_mission.budget_millions}M")
     print(f"Crew size: {len(valid_mission.crew)}")
     print("Crew members:")
     for member in valid_mission.crew:
